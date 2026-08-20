@@ -12,15 +12,18 @@ keeps. They have not been reviewed by a lawyer.
 
 Settings opens these exact addresses, and App Review opens them too:
 
-    https://legal.glowscan.app/privacy
-    https://legal.glowscan.app/terms
+    https://kaanbozkurt21.github.io/glowscan-legal/privacy.html
+    https://kaanbozkurt21.github.io/glowscan-legal/terms.html
 
-A subdomain rather than the app's own root, because `glowscan.app` serves a
-different product — and separate from it on purpose: a policy page must not be
-able to go down because a marketing site was redeployed.
+GitHub Pages, which is where `scrollmind-legal` and `scrollgames-legal` already
+live — the same pattern, and it serves HTML as HTML. Two other hosts were tried
+first and neither did: `glowscan.app` serves a different product, and Supabase
+Storage records a content type when an object is created and hands these back as
+`text/plain`, so a reviewer would have read the markup rather than the page.
 
-Vercel resolves extensionless paths to the matching `.html`, so deploying this
-repo at that subdomain serves both with no configuration. If it ever moves, the
-two URLs in `SettingsView.swift` have to move with it — `LegalLinkTests` asserts
-they are the ones that are live, because a link the app makes and the host does
-not serve is a rejection on its own.
+Links between the pages are relative, not root-relative. The site sits under
+`/glowscan-legal/`, so `href="/privacy"` leaves it entirely.
+
+If these ever move, the two URLs in `SettingsView.swift` have to move with them —
+`LegalLinkTests` asserts they are the ones that are live, because a link the app
+makes and the host does not serve is a rejection on its own.
