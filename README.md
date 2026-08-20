@@ -12,10 +12,15 @@ keeps. They have not been reviewed by a lawyer.
 
 Settings opens these exact addresses, and App Review opens them too:
 
-    https://glowscan.app/privacy
-    https://glowscan.app/terms
+    https://legal.glowscan.app/privacy
+    https://legal.glowscan.app/terms
+
+A subdomain rather than the app's own root, because `glowscan.app` serves a
+different product — and separate from it on purpose: a policy page must not be
+able to go down because a marketing site was redeployed.
 
 Vercel resolves extensionless paths to the matching `.html`, so deploying this
-repo at that domain serves both without configuration. If it is deployed
-somewhere else, the two URLs in `SettingsView.swift` have to change to match — a
-link the app makes and the host does not serve is a rejection.
+repo at that subdomain serves both with no configuration. If it ever moves, the
+two URLs in `SettingsView.swift` have to move with it — `LegalLinkTests` asserts
+they are the ones that are live, because a link the app makes and the host does
+not serve is a rejection on its own.
