@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GlowScan</title>
+<style>
+  :root { --paper:#F4F0E8; --ink:#2B2620; --quiet:#6B6259; --rule:#DCD5C8; --madder:#9C4A2F; }
+  body {
+    margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center;
+    background:var(--paper); color:var(--ink); padding:2rem;
+    font:17px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+  }
+  main { max-width:26rem; }
+  .mark { font:500 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--quiet); }
+  h1 { font-size:2.2rem; font-weight:500; margin:.6rem 0 1rem; }
+  p { color:#3B342C; }
+  ul { list-style:none; padding:0; margin:2rem 0 0; }
+  li { border-top:1px solid var(--rule); }
+  li a { display:block; padding:1rem 0; color:var(--madder); text-decoration:none; }
+  footer { margin-top:2.5rem; font:14px/1.6 ui-sans-serif, system-ui, sans-serif; color:var(--quiet); }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper:#17150F; --ink:#EFE7DA; --quiet:#9A9184; --rule:#332E26; --madder:#C97A5C; }
+    p { color:#DDD4C6; }
+  }
+</style>
+</head>
+<body>
+<main>
+  <div class="mark">GlowScan</div>
+  <h1>Bir selfie, bir okuma.</h1>
+  <p>Cilt okuması, on iki mevsimlik renk analizi ve 28 günlük bir rutin. Kozmetik bir yardımcı — tıbbi cihaz değil.</p>
+  <ul>
+    <li><a href="/privacy">Gizlilik · Privacy</a></li>
+    <li><a href="/terms">Kullanım Şartları · Terms</a></li>
+    <li><a href="mailto:hello@glowscan.app">hello@glowscan.app</a></li>
+  </ul>
+  <footer>GlowScan kozmetik bir yardımcıdır, tıbbi cihaz değildir.</footer>
+</main>
+</body>
+</html>

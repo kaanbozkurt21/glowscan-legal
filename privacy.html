@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy — GlowScan</title>
+<style>
+  :root { --paper:#F4F0E8; --ink:#2B2620; --quiet:#6B6259; --rule:#DCD5C8; --madder:#9C4A2F; }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; padding:0 1.25rem 5rem;
+    background:var(--paper); color:var(--ink);
+    font:17px/1.65 ui-serif, Georgia, "Times New Roman", serif;
+    -webkit-text-size-adjust:100%;
+  }
+  main { max-width: 40rem; margin: 0 auto; }
+  header { padding: 3.5rem 0 2rem; }
+  .mark { font:500 12px/1 ui-sans-serif, system-ui, sans-serif; letter-spacing:.22em; text-transform:uppercase; color:var(--quiet); }
+  h1 { font-size:2.1rem; font-weight:500; margin:.6rem 0 .3rem; letter-spacing:-.01em; }
+  .updated { font:14px/1.5 ui-sans-serif, system-ui, sans-serif; color:var(--quiet); margin:0; }
+  h2 { font-size:1.3rem; font-weight:500; margin:2.75rem 0 .5rem; }
+  h3 { font-size:1.02rem; font-weight:600; margin:1.6rem 0 .3rem; }
+  p, li { color:#3B342C; }
+  ul { padding-left:1.15rem; }
+  li { margin:.35rem 0; }
+  a { color:var(--madder); }
+  hr { border:0; border-top:1px solid var(--rule); margin:3.5rem 0; }
+  table { width:100%; border-collapse:collapse; margin:1rem 0; font-size:.94rem; }
+  th, td { text-align:left; padding:.6rem .5rem; border-bottom:1px solid var(--rule); vertical-align:top; }
+  th { font:600 12px/1.4 ui-sans-serif, system-ui, sans-serif; letter-spacing:.06em; text-transform:uppercase; color:var(--quiet); }
+  .lede { font-size:1.1rem; }
+  footer { margin-top:4rem; padding-top:1.5rem; border-top:1px solid var(--rule); font:14px/1.6 ui-sans-serif, system-ui, sans-serif; color:var(--quiet); }
+  @media (prefers-color-scheme: dark) {
+    :root { --paper:#17150F; --ink:#EFE7DA; --quiet:#9A9184; --rule:#332E26; --madder:#C97A5C; }
+    p, li { color:#DDD4C6; }
+  }
+</style>
+</head>
+<body>
+<main>
+
+<header>
+  <div class="mark">GlowScan</div>
+  <h1>Privacy</h1>
+  <p class="updated">Last updated 20 August 2026</p>
+</header>
+
+<p class="lede">GlowScan reads one selfie and returns a cosmetic reading: eight
+appearance measures, a twelve-season colour analysis, and a 28-day routine. This
+page says exactly what happens to that photograph and to everything else.</p>
+
+<h2>What we collect</h2>
+
+<table>
+  <tr><th>Data</th><th>Why</th><th>How long</th></tr>
+  <tr><td>A selfie, taken in the app</td><td>It is what the reading is made from</td><td>Deleted 30 days after capture, or immediately when you ask</td></tr>
+  <tr><td>The reading — scores, notes, colour season, plan</td><td>It is the product, and it is what makes a later reading comparable</td><td>Until you delete it</td></tr>
+  <tr><td>Your onboarding answers, including one free-text line</td><td>Sent with the photograph so the reading is about you rather than about a face</td><td>Until you delete it</td></tr>
+  <tr><td>A light measurement of each capture</td><td>So the next capture can be matched to the same light</td><td>With the capture</td></tr>
+  <tr><td>Product analytics — which screens were reached, which plan was chosen, whether a purchase succeeded</td><td>To know which parts of the app work</td><td>Per our analytics provider's retention</td></tr>
+</table>
+
+<p>We do not collect your name, email address, phone number, contacts, location,
+or advertising identifier. Sign-in is anonymous and device-based: there is no
+account to log into and nothing that identifies you as a person.</p>
+
+<h2>The photograph</h2>
+
+<p>This is the part that matters, so it is stated plainly.</p>
+
+<ul>
+  <li>It is uploaded, read once by the analysis model, and kept for at most
+      <strong>30 days</strong>. A scheduled job deletes the image itself; the row
+      recording the reading survives, the pixels do not.</li>
+  <li><strong>It is never used to train a model.</strong> It is sent to
+      Anthropic's API for the single analysis request.</li>
+  <li>It is never shown to another user, never sold, and never shared with an
+      advertiser or a data broker.</li>
+  <li>Nothing is drawn on your face anywhere in the app. No facial landmarks,
+      templates or biometric identifiers are computed or stored. The app does not
+      recognise or verify identity — it reads colour and skin condition.</li>
+  <li>You can delete it, and everything else, from Settings at any time. That runs
+      as one operation: it either removes everything or it removes nothing and
+      tells you it failed.</li>
+</ul>
+
+<h2>Who processes it</h2>
+
+<ul>
+  <li><strong>Supabase</strong> — storage, database and anonymous authentication.</li>
+  <li><strong>Anthropic</strong> — the vision model that reads the photograph.</li>
+  <li><strong>RevenueCat</strong> — subscription status. Receives no photograph
+      and no reading.</li>
+  <li><strong>PostHog</strong> (EU region) — product analytics carrying no
+      identifying data and no photograph.</li>
+</ul>
+
+<h2>Legal bases</h2>
+
+<p>For users in the EU and UK, under the GDPR:</p>
+
+<ul>
+  <li><strong>Consent</strong> (Art. 6(1)(a)) for taking and processing the
+      photograph. You give it by taking a capture; you withdraw it by deleting
+      your data, which is one screen and two taps.</li>
+  <li><strong>Contract</strong> (Art. 6(1)(b)) for delivering the readings you
+      subscribed to.</li>
+  <li><strong>Legitimate interests</strong> (Art. 6(1)(f)) for basic product
+      analytics, which carry no identifying data.</li>
+</ul>
+
+<h2>Your rights</h2>
+
+<table>
+  <tr><th>Right</th><th>How</th></tr>
+  <tr><td>Delete everything</td><td>Settings → Delete my data. One operation, no recovery.</td></tr>
+  <tr><td>Know what is held</td><td>This page. For a copy of your own record, email us.</td></tr>
+  <tr><td>Withdraw consent</td><td>Deleting your data withdraws it — there is nothing left to process.</td></tr>
+  <tr><td>Object to automated processing</td><td>Email us. The reading is cosmetic and produces no legal or similarly significant effect.</td></tr>
+</table>
+
+<h2>Children</h2>
+
+<p>GlowScan is written for adults. The youngest age band in the onboarding is 18
+to 24. We do not knowingly process data from anyone under 13.</p>
+
+<h2>Contact</h2>
+
+<p>Questions, requests, or anything on this page that turns out not to match what
+the app does: <a href="mailto:hello@glowscan.app">hello@glowscan.app</a>.</p>
+
+<hr>
+
+<div lang="tr">
+
+<header>
+  <div class="mark">GlowScan</div>
+  <h1>Gizlilik</h1>
+  <p class="updated">Son güncelleme: 20 Ağustos 2026</p>
+</header>
+
+<p class="lede">GlowScan tek bir selfie okur ve kozmetik bir okuma döndürür: sekiz
+görünüm ölçümü, on iki mevsimlik renk analizi ve 28 günlük bir rutin. Bu sayfa,
+o fotoğrafa ve diğer her şeye tam olarak ne olduğunu anlatır.</p>
+
+<h2>Ne topluyoruz</h2>
+
+<table>
+  <tr><th>Veri</th><th>Neden</th><th>Ne kadar süre</th></tr>
+  <tr><td>Uygulamada çekilen selfie</td><td>Okuma ondan yapılıyor</td><td>Çekimden 30 gün sonra, ya da sen istediğinde hemen siliniyor</td></tr>
+  <tr><td>Okuma — puanlar, notlar, renk mevsimi, plan</td><td>Ürünün kendisi, ve sonraki okumayı karşılaştırılabilir kılan şey</td><td>Sen silene kadar</td></tr>
+  <tr><td>Anket cevapların, bir serbest metin satırı dahil</td><td>Okumanın herhangi bir yüz hakkında değil, senin hakkında olması için fotoğrafla birlikte gönderiliyor</td><td>Sen silene kadar</td></tr>
+  <tr><td>Her çekimin ışık ölçümü</td><td>Sonraki çekimin aynı ışıkla eşleştirilebilmesi için</td><td>Çekimle birlikte</td></tr>
+  <tr><td>Ürün analitiği — hangi ekranlara ulaşıldığı, hangi planın seçildiği, satın almanın başarılı olup olmadığı</td><td>Uygulamanın hangi kısımlarının işlediğini bilmek için</td><td>Analitik sağlayıcımızın saklama süresince</td></tr>
+</table>
+
+<p>Adını, e-postanı, telefon numaranı, kişilerini, konumunu veya reklam
+tanımlayıcını toplamıyoruz. Giriş anonim ve cihaz tabanlı: giriş yapılacak bir
+hesap yok ve seni bir kişi olarak tanımlayan hiçbir şey yok.</p>
+
+<h2>Fotoğraf</h2>
+
+<ul>
+  <li>Yükleniyor, analiz modeli tarafından bir kez okunuyor ve en fazla
+      <strong>30 gün</strong> tutuluyor. Zamanlanmış bir iş görüntüyü siliyor;
+      okumayı kaydeden satır kalıyor, pikseller kalmıyor.</li>
+  <li><strong>Hiçbir modeli eğitmek için kullanılmıyor.</strong> Tek bir analiz
+      isteği için Anthropic'in API'sine gönderiliyor.</li>
+  <li>Başka bir kullanıcıya hiç gösterilmiyor, satılmıyor, reklamverene veya veri
+      simsarına verilmiyor.</li>
+  <li>Uygulamanın hiçbir yerinde yüzünün üstüne bir şey çizilmiyor. Yüz noktaları,
+      şablonları veya biyometrik tanımlayıcılar hesaplanmıyor ve saklanmıyor.
+      Uygulama kimlik tanımıyor veya doğrulamıyor — renk ve cilt durumu okuyor.</li>
+  <li>Onu ve diğer her şeyi istediğin an Ayarlar'dan silebilirsin. Tek bir işlem
+      olarak çalışıyor: ya hepsini siliyor ya da hiçbirini silmiyor ve sana
+      başarısız olduğunu söylüyor.</li>
+</ul>
+
+<h2>Kimler işliyor</h2>
+
+<ul>
+  <li><strong>Supabase</strong> — depolama, veritabanı ve anonim kimlik doğrulama.</li>
+  <li><strong>Anthropic</strong> — fotoğrafı okuyan görsel model.</li>
+  <li><strong>RevenueCat</strong> — abonelik durumu. Fotoğraf ve okuma almıyor.</li>
+  <li><strong>PostHog</strong> (AB bölgesi) — tanımlayıcı veri ve fotoğraf
+      taşımayan ürün analitiği.</li>
+</ul>
+
+<p>Bu sağlayıcıların hepsi Türkiye dışında işlem yapıyor; fotoğrafını çekerek bu
+yurt dışı aktarıma açık rıza vermiş oluyorsun.</p>
+
+<h2>KVKK kapsamındaki haklarına</h2>
+
+<p>6698 sayılı Kanun uyarınca veri sorumlusu GlowScan'dir. İşleme, fotoğraf için
+<strong>açık rızaya</strong>, abonelik için <strong>sözleşmenin ifasına</strong>
+dayanıyor. Madde 11 kapsamında şunları isteyebilirsin:</p>
+
+<ul>
+  <li>Verinin işlenip işlenmediğini öğrenmek</li>
+  <li>Düzeltilmesini veya silinmesini istemek</li>
+  <li>Yalnızca otomatik analizle üretilen bir sonuca itiraz etmek</li>
+</ul>
+
+<p>Silme işlemi uygulamanın içinde: <strong>Ayarlar → Verilerimi sil</strong>.</p>
+
+<h2>Çocuklar</h2>
+
+<p>GlowScan yetişkinler için yazıldı. Ankette en genç yaş aralığı 18-24. 13
+yaşından küçüklerin verisini bilerek işlemiyoruz.</p>
+
+<h2>İletişim</h2>
+
+<p>Soru, talep, ya da bu sayfadaki uygulamayla örtüşmeyen bir şey:
+<a href="mailto:hello@glowscan.app">hello@glowscan.app</a>.</p>
+
+</div>
+
+<footer>
+  GlowScan is a cosmetic and wellness aid. It is not a medical device, it does not
+  diagnose, and nothing it returns is medical advice.
+  <br><br>
+  GlowScan kozmetik bir yardımcıdır. Tıbbi cihaz değildir, teşhis koymaz ve
+  döndürdüğü hiçbir şey tıbbi tavsiye değildir.
+</footer>
+
+</main>
+</body>
+</html>
